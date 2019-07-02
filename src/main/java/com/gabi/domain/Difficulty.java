@@ -1,4 +1,4 @@
-package com.gabi.domain;
+package java.gabi.domain;
 
 public enum Difficulty {
     EASY, MODERATE, HARD

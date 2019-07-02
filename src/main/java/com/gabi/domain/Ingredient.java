@@ -1,4 +1,4 @@
-package com.gabi.domain;
+package java.gabi.domain;
 
 import lombok.Getter;
 import lombok.Setter;
