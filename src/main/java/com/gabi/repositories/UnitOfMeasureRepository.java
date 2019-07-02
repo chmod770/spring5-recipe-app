@@ -1,6 +1,6 @@
-package java.gabi.repositories;
+package com.gabi.repositories;
 
-import java.gabi.domain.UnitOfMeasure;
+import com.gabi.domain.UnitOfMeasure;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

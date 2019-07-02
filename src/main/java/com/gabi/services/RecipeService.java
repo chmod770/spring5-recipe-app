@@ -1,4 +1,4 @@
-package com.gabi;
+package com.gabi.services;
 
 import com.gabi.domain.Recipe;
 
