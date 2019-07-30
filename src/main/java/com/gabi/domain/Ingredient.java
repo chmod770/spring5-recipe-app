@@ -1,11 +1,13 @@
 package com.gabi.domain;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
+@EqualsAndHashCode(exclude = {"recipe"})
+@ToString
 @Entity
 public class Ingredient {
 
@@ -20,7 +22,7 @@ public class Ingredient {
     private Recipe recipe;
 
     @OneToOne(fetch = FetchType.EAGER)
-    UnitOfMeasure unitOfMeasure;
+    UnitOfMeasure uom;
 
     public Ingredient() {
     }
@@ -28,26 +30,15 @@ public class Ingredient {
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
         this.description=description;
         this.amount = amount;
-        this.unitOfMeasure = uom;
+        this.uom = uom;
     }
 
-    public Ingredient(Long id, String description, BigDecimal amount, Recipe recipe, UnitOfMeasure unitOfMeasure) {
+    public Ingredient(Long id, String description, BigDecimal amount, Recipe recipe, UnitOfMeasure uom) {
         this.id = id;
         this.description = description;
         this.amount = amount;
         this.recipe = recipe;
-        this.unitOfMeasure = unitOfMeasure;
-    }
-
-    @Override
-    public String toString() {
-        return "Ingredient{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", amount=" + amount +
-                ", recipe=" + recipe +
-                ", unitOfMeasure=" + unitOfMeasure +
-                '}';
+        this.uom = uom;
     }
 
 }

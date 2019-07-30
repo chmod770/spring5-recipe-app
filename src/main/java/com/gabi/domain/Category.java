@@ -1,13 +1,13 @@
 package com.gabi.domain;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@EqualsAndHashCode(exclude = {"recipes"})
 @Data
 public class Category {
 

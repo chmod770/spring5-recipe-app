@@ -3,7 +3,6 @@ package com.gabi.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,7 +34,7 @@ public class Recipe {
     private Notes notes;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredientSet = new HashSet<>();
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "recipe_category",
@@ -45,7 +44,7 @@ public class Recipe {
 
     public Recipe addIngredient(Ingredient ingredient){
         ingredient.setRecipe(this);
-        this.ingredientSet.add(ingredient);
+        this.ingredients.add(ingredient);
         return this;
     }
 
