@@ -4,6 +4,7 @@ import com.gabi.commands.RecipeCommand;
 import com.gabi.converters.RecipeCommandToRecipe;
 import com.gabi.converters.RecipeToRecipeCommand;
 import com.gabi.domain.Recipe;
+import com.gabi.exceptions.NotFoundException;
 import com.gabi.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -40,10 +41,10 @@ public class RecipeServiceImpl implements RecipeService{
     public Recipe findById(Long id){
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
-
         if(!recipeOptional.isPresent()){
-            throw new RuntimeException("Recipe not found");
+            throw new NotFoundException("Recipe not found. For id value: " + id .toString());
         }
+
         return recipeOptional.get();
     }
 
